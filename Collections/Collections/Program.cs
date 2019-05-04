@@ -17,10 +17,8 @@ namespace Collections
             collection[1] = new Element(3, 4);
             collection[2] = new Element(5, 6);
             collection[3] = new Element(7, 8);
-            IEnumerator enumerator = (collection as IEnumerable).GetEnumerator();
-            while (enumerator.MoveNext())
+            foreach(Element element in collection)
             {
-                Element element = enumerator.Current as Element;
                 Console.WriteLine("{0} - {1}", element.FieldA, element.FieldB);
             }
             Console.ReadKey();

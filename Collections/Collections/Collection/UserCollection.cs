@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace Collections.Collection
 {
-    public class UserCollection : IEnumerable, IEnumerator
+    public class UserCollection
     {
         readonly Element[] elements = new Element[4];
 
@@ -20,30 +20,30 @@ namespace Collections.Collection
 
         int position = -1;
 
-        bool IEnumerator.MoveNext()
+        public bool MoveNext()
         {
             if (position < elements.Length - 1)
             {
                 position++;
                 return true;
             }
-            ((IEnumerator)this).Reset();
+            Reset();
             return false;
         }
 
-        void IEnumerator.Reset()
+        public void Reset()
         {
             position = -1;
         }
 
-        object IEnumerator.Current
+        public object Current
         {
             get { return elements[position]; }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public UserCollection GetEnumerator()
         {
-            return (IEnumerator)this;
+            return this;
         }
     }
 }
